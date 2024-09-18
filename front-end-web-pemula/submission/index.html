@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookshelf App</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script defer src="main.js"></script>
+  </head>
+  <body>
+    <header style="background-color: #1e2a5e; width: 100%; padding: 2vh">
+      <h1 style="color: white">Bookshelf App</h1>
+    </header>
+
+    <main>
+      <article>
+        <section class="card">
+          <h2 class="header">Tambah Buku Baru</h2>
+          <form id="bookForm" data-testid="bookForm">
+            <div class="form-group">
+              <label for="bookFormTitle">Judul</label>
+              <input
+                class="form-control"
+                id="bookFormTitle"
+                type="text"
+                required
+                data-testid="bookFormTitleInput"
+              />
+            </div>
+            <div class="form-group">
+              <label for="bookFormAuthor">Penulis</label>
+              <input
+                class="form-control"
+                id="bookFormAuthor"
+                type="text"
+                required
+                data-testid="bookFormAuthorInput"
+              />
+            </div>
+            <div class="form-group">
+              <label for="bookFormYear">Tahun</label>
+              <input
+                class="form-control"
+                id="bookFormYear"
+                type="number"
+                required
+                data-testid="bookFormYearInput"
+              />
+            </div>
+            <div class="">
+              <label for="bookFormIsComplete">Selesai dibaca</label>
+              <input
+                id="bookFormIsComplete"
+                type="checkbox"
+                data-testid="bookFormIsCompleteCheckbox"
+              />
+            </div>
+            <button
+              class="save-button"
+              id="bookFormSubmit"
+              type="submit"
+              data-testid="bookFormSubmitButton"
+            >
+              Simpan
+            </button>
+          </form>
+        </section>
+      </article>
+      <aside style="width: 100%">
+        <section class="card" style="width: 100%">
+          <h2 class="header">Cari Buku</h2>
+          <form
+            id="searchBook"
+            data-testid="searchBookForm"
+            style="display: flex; gap: 20px"
+          >
+            <input
+              class="search-box"
+              id="searchBookTitle"
+              type="text"
+              data-testid="searchBookFormTitleInput"
+              placeholder="Masukan judul..."
+            />
+            <button
+              class="search-button"
+              id="searchSubmit"
+              type="submit"
+              data-testid="searchBookFormSubmitButton"
+              style="padding-inline: 20px; padding-block: 10px"
+            >
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
+        </section>
+
+        <section class="card">
+          <h2>Belum selesai dibaca</h2>
+
+          <div
+            id="incompleteBookList"
+            data-testid="incompleteBookList"
+            class="data-container"
+          ></div>
+        </section>
+
+        <section class="card">
+          <h2>Selesai dibaca</h2>
+          <div
+            id="completeBookList"
+            data-testid="completeBookList"
+            class="data-container"
+          ></div>
+        </section>
+      </aside>
+    </main>
+  </body>
+
+  <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span
+        class="close-button"
+        id="close"
+        onclick="closeModal()"
+        ><i class="fa-solid fa-circle-xmark"></i
+      ></span>
+      <p class="header">Edit buku</p>
+      <div class="" style="margin-block: 10px" id="edit-content">
+        <form id="bookFormUpdate" data-testid="bookFormUpdate">
+          <div class="form-group">
+            <label for="bookFormUpdateTitle">Judul</label>
+            <input
+              class="form-control"
+              id="bookFormUpdateTitle"
+              type="text"
+              required
+              data-testid="bookFormUpdateTitleInput"
+            />
+            <input type="hidden" id="bookFormUpdateId" />
+          </div>
+          <div class="form-group">
+            <label for="bookFormUpdateAuthor">Penulis</label>
+            <input
+              class="form-control"
+              id="bookFormUpdateAuthor"
+              type="text"
+              required
+              data-testid="bookFormUpdateAuthorInput"
+            />
+          </div>
+          <div class="form-group">
+            <label for="bookFormUpdateYear">Tahun</label>
+            <input
+              class="form-control"
+              id="bookFormUpdateYear"
+              type="number"
+              required
+              data-testid="bookFormUpdateYearInput"
+            />
+          </div>
+          <div class="">
+            <label for="bookFormUpdateIsComplete">Selesai dibaca</label>
+            <input
+              id="bookFormUpdateIsComplete"
+              type="checkbox"
+              data-testid="bookFormUpdateIsCompleteCheckbox"
+            />
+          </div>
+          <button
+            class="save-button"
+            id="bookFormUpdateSubmit"
+            type="submit"
+            data-testid="bookFormUpdateSubmitButton"
+          >
+            Simpan
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</html>
