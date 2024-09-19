@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { createRoot } from 'react-dom/client';
