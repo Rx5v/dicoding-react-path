@@ -1,12 +1,14 @@
 /* eslint-disable react/prop-types */
 
+import NoteItem from "./NoteItem";
+
 const NoteList = ({allNote}) => {
     return (
-        <div>
+        <div style={{marginTop: '5vh', display: 'flex', gap: '1vh', flexWrap: 'wrap'}}>
             {
                 
                 allNote.map((note) => (
-                    <div className="card" key={note.id}>{note.title}</div>
+                    <NoteItem key={note.id} title={note.title} body={note.body} date={note.createdAt}/>
                 ))
             }
         </div>
