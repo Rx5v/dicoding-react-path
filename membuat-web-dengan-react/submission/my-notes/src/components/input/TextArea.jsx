@@ -1,6 +1,5 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
-import PropTypes from 'prop-types';
-
 const TextArea = ({ label, id, value, onChange, placeholder }) => {
   return (
     <div className="textarea-wrapper">
@@ -15,18 +14,6 @@ const TextArea = ({ label, id, value, onChange, placeholder }) => {
       ></textarea>
     </div>
   );
-};
-
-TextArea.propTypes = {
-  label: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  placeholder: PropTypes.string
-};
-
-TextArea.defaultProps = {
-  placeholder: ''
 };
 
 export default React.memo(TextArea);

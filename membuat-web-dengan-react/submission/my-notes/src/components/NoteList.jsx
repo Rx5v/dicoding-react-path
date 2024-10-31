@@ -1,15 +1,16 @@
 /* eslint-disable react/prop-types */
 
-import NoteItem from "./NoteItem";
+import Card from "./card/Card";
 
-const NoteList = ({allNote}) => {
+
+const NoteList = ({allNote, onMove, onDelete}) => {
     return (
-        <div style={{marginTop: '5vh', display: 'flex', gap: '1vh', flexWrap: 'wrap'}}>
+        <div className={'note-list'}>
             {
                 
-                allNote.map((note) => (
-                    <NoteItem key={note.id} title={note.title} body={note.body} date={note.createdAt}/>
-                ))
+                allNote.length > 0 ? allNote.map((note) => (
+                    <Card key={note.id} title={note.title} body={note.body} type={note.archived ? 'Pindahkan' : 'Arsipkan'} date={note.createdAt} id={note.id} onMove={onMove} onDelete={onDelete} {...note}/>
+                )) : <p className="text-white m-auto">Tidak ada catatan</p>
             }
         </div>
     )
