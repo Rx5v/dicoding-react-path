@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 const ButtonRemove = ({id, onDelete}) => {
     return(
-        <button className='button' style={{width: '100%'}} onClick={() => onDelete(id)}>Remove</button>
+        <button className='button bg-danger' onClick={() => onDelete(id)}>Hapus</button>
     );
 }
 export default ButtonRemove;
